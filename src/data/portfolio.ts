@@ -16,6 +16,14 @@ export interface Experience {
   };
 }
 
+export interface WhyFinancePhoto {
+  id: string;
+  src: string;
+  alt: string;
+  caption: string;
+  badge: string;
+}
+
 export interface AboutPhoto {
   id: string;
   src: string;
@@ -50,6 +58,23 @@ export interface PortfolioData {
       readcv?: string;
     };
   };
+  whoAmI: {
+    title: string;
+    video: {
+      src: string;
+      poster: string;
+      caption: string;
+      badge: string;
+    };
+    whyFinance: {
+      title: string;
+      tagline: string;
+      coverSrc: string;
+      badge: string;
+      preview: string;
+    };
+  };
+  whyFinancePhotos: WhyFinancePhoto[];
   aboutPhotos: AboutPhoto[];
   media: {
     listening: {
@@ -88,7 +113,7 @@ export const portfolioData: PortfolioData = {
     handle: "hannyww",
     email: "contact@example.com",
     location: "Atlanta, GA and Cornell University",
-    bio: "Sophomore studying operations research engineering. Operations research engineering or ORIE combines optimization (practical analysis), mathematics, and finance",
+    bio: "Sophomore studying Operations Research Engineering (ORIE) at Cornell, a major that combines optimization, mathematics, and probability with real-world decision making.",
     availabilityStatus: "Available for new projects",
     status: {
       currentRole: "studying operations research engineering at Cornell University",
@@ -100,6 +125,59 @@ export const portfolioData: PortfolioData = {
       linkedin: "https://www.linkedin.com/in/hannywu223/",
     },
   },
+  whoAmI: {
+    title: "Who Am I",
+    video: {
+      src: "/videos/personal-intro.mp4",
+      poster: "/photos/video-poster.jpg",
+      caption: "A short personal introduction video sharing background and interests.",
+      badge: "Personal Video",
+    },
+    whyFinance: {
+      title: "My Why Finance Story",
+      tagline: "Connecting operations research, optimization, and market dynamics.",
+      coverSrc: "/photos/why-finance.jpg",
+      badge: "Interactive",
+      preview: "Explore the moments and ideas that shaped why I love finance.",
+    },
+  },
+  whyFinancePhotos: [
+    {
+      id: "wf-1",
+      src: "/photos/why-finance-1.jpg",
+      alt: "[Photo placeholder 1 - replace with your own image]",
+      caption: "[Add a caption for this moment that shaped your finance interest]",
+      badge: "Moment 1",
+    },
+    {
+      id: "wf-2",
+      src: "/photos/why-finance-2.jpg",
+      alt: "[Photo placeholder 2 - replace with your own image]",
+      caption: "[Add a caption for this moment that shaped your finance interest]",
+      badge: "Moment 2",
+    },
+    {
+      id: "wf-3",
+      src: "/photos/why-finance-3.jpg",
+      alt: "[Photo placeholder 3 - replace with your own image]",
+      caption: "[Add a caption for this moment that shaped your finance interest]",
+      badge: "Moment 3",
+    },
+    {
+      id: "wf-4",
+      src: "/photos/why-finance-4.jpg",
+      alt: "[Photo placeholder 4 - replace with your own image]",
+      caption: "[Add a caption for this moment that shaped your finance interest]",
+      badge: "Moment 4",
+    },
+    {
+      id: "wf-5",
+      src: "/photos/why-finance-5.jpg",
+      alt: "[Photo placeholder 5 - replace with your own image]",
+      caption: "[Add a caption for this moment that shaped your finance interest]",
+      badge: "Moment 5",
+    },
+  ],
   aboutPhotos: [
     {
       id: "photo-1",

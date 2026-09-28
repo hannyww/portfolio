@@ -1,5 +1,5 @@
 import { portfolioData } from "@/data/portfolio";
-import { PhotoCardGallery } from "@/components/PhotoCardGallery";
+import { WhoAmISection } from "@/components/WhoAmISection";
 import { MediaCard } from "@/components/MediaCard";
 import { FloatingNav } from "@/components/FloatingNav";
 import { DropInGuide } from "@/components/DropInGuide";
@@ -7,7 +7,7 @@ import Link from "next/link";
 import { ArrowUpRight, MapPin } from "lucide-react";
 
 export default function AboutPage() {
-  const { personal, aboutPhotos, media } = portfolioData;
+  const { personal, media } = portfolioData;
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-neutral-900 pb-28 pt-24 sm:pt-28">
@@ -19,9 +19,6 @@ export default function AboutPage() {
         <section aria-label="Introduction" className="rounded-3xl border border-neutral-200/90 bg-white p-6 sm:p-8 shadow-card">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-neutral-100">
             <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-neutral-400 block mb-1">
-                Portfolio & Index
-              </span>
               <h1 className="text-3xl sm:text-4xl font-display font-bold tracking-tight text-neutral-900">
                 {personal.name}
               </h1>
@@ -88,16 +85,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Clickable Photos with Reveal Captions */}
-        <section aria-labelledby="photos-heading" className="space-y-3">
-          <div className="flex items-center justify-between px-1">
-            <h2 id="photos-heading" className="text-xs font-mono uppercase tracking-wider text-neutral-400">
-              Moments & Workspace (Click to reveal caption)
-            </h2>
-            <span className="text-[11px] font-mono text-neutral-400">Interactive</span>
-          </div>
-          <PhotoCardGallery photos={aboutPhotos} />
-        </section>
+        {/* Who Am I Section: Personal Video + Why Finance Story */}
+        <WhoAmISection whoAmI={portfolioData.whoAmI} />
 
         {/* Currently Listening / Reading Card */}
         <MediaCard media={media} />

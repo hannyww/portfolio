@@ -28,12 +28,12 @@ export function DropInGuide() {
       group: "About Page Photos",
       items: [
         {
-          file: "public/photos/about-photo-1.jpg",
-          desc: "First interactive photo with caption reveal",
+          file: "public/videos/personal-intro.mp4",
+          desc: "Personal intro video for Who Am I section",
         },
         {
-          file: "public/photos/about-photo-2.jpg",
-          desc: "Second interactive photo with caption reveal",
+          file: "public/photos/why-finance.jpg",
+          desc: "Cover visual for Why Finance story card",
         },
         {
           file: "public/photos/listening-cover.jpg",
