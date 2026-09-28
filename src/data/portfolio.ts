@@ -37,6 +37,7 @@ export interface PortfolioData {
     handle: string;
     email: string;
     location: string;
+    bio?: string;
     availabilityStatus: string;
     status: {
       currentRole: string;
@@ -83,19 +84,20 @@ export interface PortfolioData {
 
 export const portfolioData: PortfolioData = {
   personal: {
-    name: "[Your Name]",
+    name: "Hanny Wu",
     handle: "hannyww",
     email: "contact@example.com",
-    location: "San Francisco, CA",
+    location: "Atlanta, GA and Cornell University",
+    bio: "Sophomore studying operations research engineering. Operations research engineering or ORIE combines optimization (practical analysis), mathematics, and finance",
     availabilityStatus: "Available for new projects",
     status: {
-      currentRole: "building thoughtful software and interfaces",
+      currentRole: "studying operations research engineering at Cornell University",
       previousRoles: ["[Previous Role 1]", "[Previous Role 2]", "[Previous Role 3]"],
     },
     socials: {
       github: "https://github.com/hannyww",
       twitter: "https://x.com",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://www.linkedin.com/in/hannywu223/",
     },
   },
   aboutPhotos: [

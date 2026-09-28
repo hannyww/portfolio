@@ -33,48 +33,57 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* One-line status: current role/interest + previous roles (bold) */}
+          {/* First Blurb Text */}
           <div className="pt-6">
-            <p className="text-base sm:text-lg text-neutral-700 leading-relaxed font-sans">
-              Currently {personal.status.currentRole}. Previously at{" "}
-              {personal.status.previousRoles.map((role, idx, arr) => (
-                <span key={role}>
-                  <strong className="font-semibold text-neutral-950 font-display">
-                    {role}
-                  </strong>
-                  {idx < arr.length - 2
-                    ? ", "
-                    : idx === arr.length - 2
-                    ? ", and "
-                    : "."}
-                </span>
-              ))}
+            <p className="text-base sm:text-lg text-neutral-800 leading-relaxed font-sans">
+              {personal.bio || (
+                <>
+                  Currently {personal.status.currentRole}. Previously at{" "}
+                  {personal.status.previousRoles.map((role, idx, arr) => (
+                    <span key={role}>
+                      <strong className="font-semibold text-neutral-950 font-display">
+                        {role}
+                      </strong>
+                      {idx < arr.length - 2
+                        ? ", "
+                        : idx === arr.length - 2
+                        ? ", and "
+                        : "."}
+                    </span>
+                  ))}
+                </>
+              )}
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3 pt-4 border-t border-neutral-100">
               <Link
+                href="/contact"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold bg-neutral-900 text-white hover:bg-neutral-800 transition-colors shadow-sm"
+              >
+                <span>Send a message</span>
+                <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
+              </Link>
+              {personal.socials.linkedin && (
+                <a
+                  href={personal.socials.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-medium bg-neutral-100 text-neutral-800 hover:bg-neutral-200/80 border border-neutral-200/80 transition-colors"
+                >
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                  </svg>
+                  <span>LinkedIn</span>
+                  <ArrowUpRight className="w-3 h-3 text-neutral-400" aria-hidden="true" />
+                </a>
+              )}
+              <Link
                 href="/work"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold bg-neutral-900 text-white hover:bg-neutral-800 transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-medium text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition-colors ml-auto"
               >
                 <span>View Real Experiences</span>
                 <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
               </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-medium bg-neutral-100 text-neutral-800 hover:bg-neutral-200/70 border border-neutral-200/80 transition-colors"
-              >
-                <span>Send a message</span>
-              </Link>
-              {personal.socials.github && (
-                <a
-                  href={personal.socials.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-mono text-neutral-500 hover:text-neutral-900 transition-colors ml-auto"
-                >
-                  github/{personal.handle}
-                </a>
-              )}
             </div>
           </div>
         </section>
