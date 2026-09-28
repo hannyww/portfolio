@@ -102,31 +102,17 @@ export default function WorkSubpage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* Team photos */}
-        {exp.teamPhotos && exp.teamPhotos.length > 0 && (
-          <section aria-label="Team photos" className="space-y-4">
-            {exp.teamPhotos.length === 1 ? (
-              <div className="rounded-3xl overflow-hidden border border-neutral-200/90 shadow-card">
-                <div className="relative aspect-[4/3] sm:aspect-[16/9] w-full bg-neutral-100">
-                  <Image src={exp.teamPhotos[0]} alt="Team photo" fill className="object-cover" />
-                </div>
-              </div>
-            ) : (
-              <div className="grid grid-cols-2 gap-4">
-                {exp.teamPhotos.map((src, i) => (
-                  <div key={i} className="rounded-3xl overflow-hidden border border-neutral-200/90 shadow-card">
-                    <div className="relative aspect-[3/4] w-full bg-neutral-100">
-                      <Image
-                        src={src}
-                        alt={i === 0 ? "Intern team at Dispatch Energy" : "Hanny Wu at Dispatch Energy"}
-                        fill
-                        className="object-cover object-top"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
+        {/* Group team photo — wide cinematic banner */}
+        {exp.teamPhotos && exp.teamPhotos[0] && (
+          <section aria-label="Intern team photo" className="rounded-3xl overflow-hidden border border-neutral-200/90 shadow-card">
+            <div className="relative aspect-[21/9] w-full bg-neutral-100">
+              <Image
+                src={exp.teamPhotos[0]}
+                alt="Intern team at Dispatch Energy"
+                fill
+                className="object-cover object-center"
+              />
+            </div>
           </section>
         )}
 
@@ -176,6 +162,20 @@ export default function WorkSubpage({ params }: PageProps) {
         )}
 
         {/* Concepts + Takeaway */}
+        {/* Solo photo — full horizontal, placed near takeaways */}
+        {exp.teamPhotos && exp.teamPhotos[1] && (
+          <section aria-label="Photo" className="rounded-3xl overflow-hidden border border-neutral-200/90 shadow-card">
+            <div className="relative aspect-[16/9] w-full bg-neutral-100">
+              <Image
+                src={exp.teamPhotos[1]}
+                alt="Hanny Wu at Dispatch Energy"
+                fill
+                className="object-cover object-center"
+              />
+            </div>
+          </section>
+        )}
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <section aria-labelledby="technologies-heading" className="rounded-3xl border border-neutral-200/90 bg-white p-6 shadow-card space-y-3">
             <div className="flex items-center gap-2">
