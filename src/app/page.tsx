@@ -53,13 +53,6 @@ export default function AboutPage() {
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3 pt-4 border-t border-neutral-100">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold bg-neutral-900 text-white hover:bg-neutral-800 transition-colors shadow-sm"
-              >
-                <span>Send a message</span>
-                <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
-              </Link>
               {personal.socials.linkedin && (
                 <a
                   href={personal.socials.linkedin}
