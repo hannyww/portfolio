@@ -10,7 +10,7 @@ export function FloatingNav() {
   const navItems = [
     { label: "About", href: "/" },
     { label: "Work", href: "/work" },
-    { label: "Contact", href: "/contact" },
+    { label: "What's Next", href: "/whats-next" },
   ];
 
   return (
