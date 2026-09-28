@@ -8,6 +8,7 @@ export interface Experience {
   photoSrc: string;
   teamPhotoSrc?: string;
   teamPhotos?: string[];
+  systemDiagramSrc?: string;
   oneLineDescription: string;
   fullSubpage: {
     overview: string;
@@ -233,16 +234,20 @@ export const portfolioData: PortfolioData = {
       period: "September 2025 – Present",
       location: "Ithaca, NY",
       photoSrc: "/photos/work-2.jpg",
-      oneLineDescription: "Selected as Business Lead for the Cornell Fintech Club Millennium Project, partnering with Millennium Management to build an AI-powered financial document intelligence tool for earnings calls",
+      teamPhotos: ["/photos/cfm-team.jpg"],
+      systemDiagramSrc: "/photos/cfm-diagram.png",
+      oneLineDescription: "Selected as Business Lead for the Cornell Fintech Club Millennium Project, partnering with Millennium Management to build an AI-powered financial document intelligence pipeline for earnings calls and SEC filings",
       fullSubpage: {
-        overview: "Add your fuller reflection on what you truly learned here",
+        overview: "As one of the only engineers in Cornell Fintech Club, I was selected as Business Lead for the Millennium Project, a semester-long engagement with hedge fund Millennium Management. The project sits at an intersection I find uniquely exciting: applying engineering rigor to financial analysis in the age of AI. I brought my technical background to lead the build of a financial document intelligence system that ingests earnings call transcripts, SEC filings, and financial statements, then synthesizes structured investment analysis using LLMs and chain-of-thought prompting. This was my first real exposure to building GenAI tooling for a live finance use case, and it fundamentally changed how I think about what engineers can contribute to financial services",
         highlights: [
-          "Selected as Business Lead for a high-impact club project as a new member",
-          "Partnered with Millennium Management to scope and deliver a financial document generator for earnings calls",
-          "Built tools to extract and synthesize key financial insights, reducing manual analyst time",
+          "Architected a multi-source pipeline ingesting earnings call transcripts, SEC filings, and financial statements via financial APIs, processed through a chain-of-thought LLM prompting system to generate structured investment analysis",
+          "Built a document-tailored summary system with user-configurable risk tolerance inputs, feeding into a persistent database of previous analyses for comparative review",
+          "Led product scoping and delivery as Business Lead, translating Millennium's requirements into a technical roadmap and managing the team under a tight semester-long deadline",
+          "Presented the final system to Millennium Management, pitching a technical AI product to institutional finance stakeholders for the first time",
         ],
-        technologies: ["Financial Analysis", "AI/NLP", "Earnings Call Analysis", "Product Strategy", "Fintech"],
-        outcomes: "Add your personal takeaway from this role beyond the resume bullet",
+        technologies: ["Python", "LLM APIs", "Chain-of-Thought Prompting", "SEC EDGAR API", "GenAI", "Financial Statement Analysis", "Earnings Call NLP", "Product Strategy"],
+        keyLesson: "Given real ownership and responsibility as a junior club member, I learned to balance stakeholder expectations with academic commitments under a fast turnaround. This project showed me that my engineering background is not separate from finance — it is a genuine edge, especially in a world where the ability to build AI-powered financial tools is becoming increasingly valuable",
+        outcomes: "This was my first true exposure to GenAI in finance and it completely reframed how I see the intersection of engineering and financial analysis. I learned to move fast on the technical side without losing sight of the financial logic the product needed to serve, and it made me want to keep pushing on what is possible when you combine both skill sets",
         externalUrl: "https://cornellfintech.org",
       },
     },

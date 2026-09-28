@@ -161,6 +161,24 @@ export default function WorkSubpage({ params }: PageProps) {
           </section>
         )}
 
+        {/* System architecture diagram — shown contained with label */}
+        {exp.systemDiagramSrc && (
+          <section aria-labelledby="diagram-heading" className="rounded-3xl border border-neutral-200/90 bg-white p-6 sm:p-8 shadow-card space-y-4">
+            <h2 id="diagram-heading" className="text-lg font-display font-semibold text-neutral-900">
+              System Architecture
+            </h2>
+            <div className="relative w-full rounded-2xl overflow-hidden border border-neutral-200/60 bg-neutral-50">
+              <Image
+                src={exp.systemDiagramSrc}
+                alt="System architecture diagram"
+                width={800}
+                height={1000}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </section>
+        )}
+
         {/* Concepts + Takeaway */}
         {/* Solo photo — full horizontal, placed near takeaways */}
         {exp.teamPhotos && exp.teamPhotos[1] && (
