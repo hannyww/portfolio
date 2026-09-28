@@ -102,22 +102,31 @@ export default function WorkSubpage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* Team photo — shown only if teamPhotoSrc is set */}
-        {exp.teamPhotoSrc && (
-          <section aria-label="Team photo" className="rounded-3xl overflow-hidden border border-neutral-200/90 bg-white shadow-card">
-            <div className="relative aspect-[4/3] sm:aspect-[16/9] w-full bg-neutral-100">
-              <Image
-                src={exp.teamPhotoSrc}
-                alt="Intern team photo"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="px-5 py-3 border-t border-neutral-100">
-              <p className="text-[11px] font-mono text-neutral-400">
-                Drop your intern photo into <span className="text-neutral-600">public/photos/dispatch-intern.jpg</span> to replace this placeholder
-              </p>
-            </div>
+        {/* Team photos */}
+        {exp.teamPhotos && exp.teamPhotos.length > 0 && (
+          <section aria-label="Team photos" className="space-y-4">
+            {exp.teamPhotos.length === 1 ? (
+              <div className="rounded-3xl overflow-hidden border border-neutral-200/90 shadow-card">
+                <div className="relative aspect-[4/3] sm:aspect-[16/9] w-full bg-neutral-100">
+                  <Image src={exp.teamPhotos[0]} alt="Team photo" fill className="object-cover" />
+                </div>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 gap-4">
+                {exp.teamPhotos.map((src, i) => (
+                  <div key={i} className="rounded-3xl overflow-hidden border border-neutral-200/90 shadow-card">
+                    <div className="relative aspect-[3/4] w-full bg-neutral-100">
+                      <Image
+                        src={src}
+                        alt={i === 0 ? "Intern team at Dispatch Energy" : "Hanny Wu at Dispatch Energy"}
+                        fill
+                        className="object-cover object-top"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </section>
         )}
 

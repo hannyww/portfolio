@@ -7,6 +7,7 @@ export interface Experience {
   location: string;
   photoSrc: string;
   teamPhotoSrc?: string;
+  teamPhotos?: string[];
   oneLineDescription: string;
   fullSubpage: {
     overview: string;
@@ -208,7 +209,7 @@ export const portfolioData: PortfolioData = {
       period: "June 2026 – August 2026",
       location: "New York, NY",
       photoSrc: "/photos/work-1.jpg",
-      teamPhotoSrc: "/photos/dispatch-intern.jpg",
+      teamPhotos: ["/photos/dispatch-intern-1.jpg", "/photos/dispatch-intern-2.jpg"],
       oneLineDescription: "Standardized M&A processes for a team covering $400M in energy assets at a Hamilton Lane portfolio company, while learning infrastructure finance, capital markets, and buy-side dynamics entirely on the fly",
       fullSubpage: {
         overview: "I came in with a basic finance foundation from coursework and was immediately dropped into the complex world of infrastructure investing, where revenue structures are tied to power purchase agreements (PPAs), deals involve debt sculpting, and capital structures sit at the intersection of energy policy and credit markets. My engineering research background helped me pick up technical frameworks quickly, but I had to absorb entirely new financial concepts, from PPA mechanics to borrowing base analysis and capital markets dynamics, in real time and on the job",
