@@ -4,7 +4,7 @@ import { ArrowLeft, Mail } from "lucide-react";
 
 export const metadata = {
   title: "What's Next | Hanny Wu",
-  description: "Where I am headed and what I am building toward.",
+  description: "Where I am headed and what I am building toward",
 };
 
 export default function WhatsNextPage() {

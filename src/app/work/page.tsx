@@ -6,7 +6,7 @@ import { ArrowRight, ArrowUpRight, Calendar, MapPin } from "lucide-react";
 
 export const metadata = {
   title: "Work & Experience | Hanny Wu",
-  description: "A closer look at the roles, initiatives, clubs, and projects that have shaped who I am.",
+  description: "A closer look at the roles, initiatives, clubs, and projects that have shaped who I am",
 };
 
 export default function WorkPage() {

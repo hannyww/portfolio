@@ -7,7 +7,7 @@ import { ArrowLeft } from "lucide-react";
 export const metadata = {
   title: "Why Finance | Hanny Wu",
   description:
-    "Discovered finance through engineering and impact.",
+    "Discovered finance through engineering and impact",
 };
 
 export default function WhyFinancePage() {

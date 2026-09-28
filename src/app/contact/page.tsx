@@ -7,7 +7,7 @@ import { MessageSquareText } from "lucide-react";
 
 export const metadata = {
   title: "Contact & Connect | Portfolio",
-  description: "Get in touch via iMessage prompt, direct email composer, or social channels.",
+  description: "Get in touch via iMessage prompt, direct email composer, or social channels",
 };
 
 export default function ContactPage() {
