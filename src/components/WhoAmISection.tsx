@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Play, Video, ArrowRight, Sparkles } from "lucide-react";
+import { Video, ArrowRight, Sparkles } from "lucide-react";
 import { PortfolioData } from "@/data/portfolio";
+import { useRef, useState } from "react";
 
 interface WhoAmISectionProps {
   whoAmI: PortfolioData["whoAmI"];
@@ -39,31 +39,29 @@ export function WhoAmISection({ whoAmI }: WhoAmISectionProps) {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {/* Box 1: Short Personal Video */}
+        {/* Box 1: Personal Video */}
         <div className="group relative rounded-3xl overflow-hidden border border-neutral-200/90 bg-white shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between">
-          <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100">
-            <video
-              ref={videoRef}
-              src={whoAmI.video.src}
-              poster={whoAmI.video.poster}
-              controls={isPlaying}
-              playsInline
-              onPlay={() => setIsPlaying(true)}
-              onPause={() => setIsPlaying(false)}
-              onError={() => setVideoNotice(true)}
-              className="w-full h-full object-cover"
-            />
-
-            {/* Video overlay when not playing */}
-            {!isPlaying && (
-              <div
-                onClick={toggleVideo}
-                className="absolute inset-0 bg-neutral-900/20 backdrop-blur-[2px] flex items-center justify-center cursor-pointer group-hover:bg-neutral-900/30 transition-all"
-              >
-                <div className="w-14 h-14 rounded-full bg-white/95 text-neutral-900 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                  <Play className="w-5 h-5 ml-1 fill-current" aria-hidden="true" />
-                </div>
-              </div>
+          <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-900">
+            {whoAmI.video.youtubeId ? (
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${whoAmI.video.youtubeId}?rel=0&modestbranding=1`}
+                title={whoAmI.video.caption}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full border-0"
+              />
+            ) : (
+              <video
+                ref={videoRef}
+                src={whoAmI.video.src}
+                poster={whoAmI.video.poster}
+                controls={isPlaying}
+                playsInline
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                onError={() => setVideoNotice(true)}
+                className="w-full h-full object-cover"
+              />
             )}
 
             {/* Badge */}
@@ -73,21 +71,10 @@ export function WhoAmISection({ whoAmI }: WhoAmISectionProps) {
             </div>
           </div>
 
-          <div className="p-4 bg-white border-t border-neutral-100 flex flex-col justify-between flex-1">
+          <div className="p-4 bg-white border-t border-neutral-100">
             <p className="text-xs text-neutral-600 leading-relaxed font-sans">
               {whoAmI.video.caption}
             </p>
-            {videoNotice && (
-              <p className="mt-2 text-[11px] text-neutral-500 bg-neutral-50 border border-neutral-200/60 p-2 rounded-xl">
-                Ready for your video! Drop personal-intro.mp4 into public/videos/ to view here.
-              </p>
-            )}
-            <div className="mt-3 pt-2.5 border-t border-neutral-100 flex items-center justify-between text-[11px] font-mono text-neutral-400">
-              <span>Drop-in video:</span>
-              <span className="text-neutral-600 truncate max-w-[180px]">
-                {whoAmI.video.src}
-              </span>
-            </div>
           </div>
         </div>
 

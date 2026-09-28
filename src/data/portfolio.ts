@@ -69,6 +69,7 @@ export interface PortfolioData {
       poster: string;
       caption: string;
       badge: string;
+      youtubeId?: string;
     };
     whyFinance: {
       title: string;
@@ -134,8 +135,9 @@ export const portfolioData: PortfolioData = {
     video: {
       src: "/videos/personal-intro.mp4",
       poster: "/photos/video-poster.jpg",
-      caption: "A short personal introduction video sharing background and interests",
+      caption: "A short personal introduction sharing background and interests",
       badge: "Personal Video",
+      youtubeId: "TXtaMPWjBe4",
     },
     whyFinance: {
       title: "Why Finance",
