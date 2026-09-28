@@ -5,9 +5,9 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export const metadata = {
-  title: "My Why Finance Story | Hanny Wu",
+  title: "Why Finance | Hanny Wu",
   description:
-    "The moments and ideas that shaped my interest in finance and operations research.",
+    "Discovered finance through engineering and impact.",
 };
 
 export default function WhyFinancePage() {
@@ -42,21 +42,12 @@ export default function WhyFinancePage() {
           </div>
 
           <p className="mt-5 pt-5 border-t border-neutral-100 text-sm text-neutral-600 leading-relaxed">
-            Each picture below is a moment or idea that shapes why I care about
-            finance. Click any card to reveal what it means to me.
+            Click any card to reveal what it means to me.
           </p>
         </section>
 
         {/* Interactive photo gallery */}
         <WhyFinanceGallery photos={whyFinancePhotos} />
-
-        {/* Drop-in instructions */}
-        <div className="rounded-2xl border border-dashed border-neutral-300 bg-neutral-50 p-5 text-xs font-mono text-neutral-500 space-y-1">
-          <p className="font-semibold text-neutral-700">How to add your own photos</p>
-          <p>Drop images named why-finance-1.jpg through why-finance-5.jpg into</p>
-          <p className="text-neutral-400">public/photos/</p>
-          <p className="pt-2 text-[11px]">Edit captions and badges in src/data/portfolio.ts under whyFinancePhotos</p>
-        </div>
       </main>
     </div>
   );

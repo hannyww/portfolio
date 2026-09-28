@@ -25,16 +25,7 @@ export function WhyFinanceGallery({ photos }: WhyFinanceGalleryProps) {
 
   return (
     <section aria-label="Why Finance photo gallery" className="space-y-4">
-      <div className="flex items-center justify-between px-1 mb-2">
-        <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 font-semibold">
-          Tap a card to reveal the story
-        </span>
-        <span className="text-[11px] font-mono text-neutral-400">
-          {flipped.size} / {photos.length} revealed
-        </span>
-      </div>
-
-      {/* First row: 2 large cards side-by-side */}
+      {/* First row: 2 portrait cards side-by-side */}
       <div className="grid grid-cols-2 gap-4">
         {photos.slice(0, 2).map((photo) => (
           <FlipCard
@@ -57,23 +48,8 @@ export function WhyFinanceGallery({ photos }: WhyFinanceGalleryProps) {
         />
       )}
 
-      {/* Third row: 2 medium cards side-by-side */}
-      {photos.length > 3 && (
-        <div className="grid grid-cols-2 gap-4">
-          {photos.slice(3, 5).map((photo) => (
-            <FlipCard
-              key={photo.id}
-              photo={photo}
-              isFlipped={flipped.has(photo.id)}
-              onToggle={() => toggle(photo.id)}
-              aspectClass="aspect-square"
-            />
-          ))}
-        </div>
-      )}
-
       {/* Any overflow: single cards */}
-      {photos.slice(5).map((photo) => (
+      {photos.slice(3).map((photo) => (
         <FlipCard
           key={photo.id}
           photo={photo}
@@ -108,38 +84,38 @@ function FlipCard({ photo, isFlipped, onToggle, aspectClass }: FlipCardProps) {
         alt={photo.alt}
         fill
         className={`object-cover transition-all duration-500 ${
-          isFlipped ? "scale-105 brightness-50" : "scale-100 group-hover:scale-[1.02]"
+          isFlipped ? "scale-105 brightness-[0.3]" : "scale-100 group-hover:scale-[1.02]"
         }`}
-        sizes="(max-width: 640px) 50vw, 400px"
+        sizes="(max-width: 640px) 50vw, 600px"
       />
 
-      {/* Badge */}
+      {/* Badge — hidden when flipped */}
       {!isFlipped && (
         <div className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-full bg-neutral-900/70 backdrop-blur-sm text-white text-[11px] font-medium tracking-wide pointer-events-none">
           {photo.badge}
         </div>
       )}
 
-      {/* Tap hint when not flipped */}
+      {/* Tap hint */}
       {!isFlipped && (
         <div className="absolute inset-0 flex items-end justify-center pb-4 z-10 pointer-events-none">
           <span className="px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm text-neutral-700 text-[11px] font-semibold shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-            Tap to reveal
+            Click to reveal
           </span>
         </div>
       )}
 
-      {/* Caption overlay when flipped */}
+      {/* Caption overlay — scrollable for long text */}
       {isFlipped && (
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center p-5 text-center">
-          <span className="mb-3 px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-[11px] font-medium tracking-wide border border-white/30">
+        <div className="absolute inset-0 z-20 flex flex-col p-5 overflow-y-auto">
+          <span className="flex-shrink-0 mb-3 self-start px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-[11px] font-medium tracking-wide border border-white/30">
             {photo.badge}
           </span>
-          <p className="text-white text-sm sm:text-base font-display font-semibold leading-snug max-w-[280px] drop-shadow-md">
+          <p className="text-white text-xs sm:text-sm font-sans leading-relaxed drop-shadow-md flex-1">
             {photo.caption}
           </p>
-          <span className="mt-4 text-white/60 text-[11px] font-mono">
-            tap to close
+          <span className="flex-shrink-0 mt-3 text-white/50 text-[10px] font-mono self-center">
+            click to close
           </span>
         </div>
       )}

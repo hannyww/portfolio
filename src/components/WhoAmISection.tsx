@@ -36,7 +36,6 @@ export function WhoAmISection({ whoAmI }: WhoAmISectionProps) {
         <h2 id="whoami-heading" className="text-xs font-mono uppercase tracking-wider text-neutral-400 font-semibold">
           {whoAmI.title}
         </h2>
-        <span className="text-[11px] font-mono text-neutral-400">Interactive</span>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -127,10 +126,7 @@ export function WhoAmISection({ whoAmI }: WhoAmISectionProps) {
               </p>
             </div>
 
-            <div className="mt-3 pt-2.5 border-t border-neutral-100 flex items-center justify-between text-xs">
-              <span className="text-[11px] font-mono text-neutral-400">
-                Interactive pictures
-              </span>
+            <div className="mt-3 pt-2.5 border-t border-neutral-100 flex items-center justify-end text-xs">
               <span className="font-semibold text-neutral-900 text-xs inline-flex items-center gap-1 group-hover:underline">
                 <span>Open story</span>
                 <ArrowRight className="w-3 h-3" aria-hidden="true" />
