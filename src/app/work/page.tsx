@@ -26,7 +26,7 @@ export default function WorkPage() {
             Work &amp; Experience
           </h1>
           <p className="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed font-sans">
-            A closer look at the roles, initiatives, clubs, and projects that have shaped who I am. My takeaways from each experience, beyond just a surface-level resume entry.
+            A closer look at the roles, initiatives, clubs, and projects that have shaped who I am. My takeaways from each experience, beyond just a surface-level resume entry
           </p>
         </section>
 
@@ -125,7 +125,7 @@ export default function WorkPage() {
                   What&apos;s Next
                 </h2>
                 <p className="mt-2 text-sm text-neutral-500 leading-relaxed">
-                  Where I am headed and what I am building toward.
+                  Where I am headed and what I am building toward
                 </p>
               </div>
               <ArrowUpRight className="w-6 h-6 text-neutral-400 group-hover:text-neutral-900 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" aria-hidden="true" />

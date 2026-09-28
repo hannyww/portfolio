@@ -30,18 +30,18 @@ export default function WhatsNextPage() {
           <h1 className="text-3xl sm:text-4xl font-display font-bold text-neutral-900">
             What&apos;s Next
           </h1>
-          <p className="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed">
-            Where I am headed and what I am building toward.
+           <p className="mt-3 text-sm sm:text-base text-neutral-600 leading-relaxed">
+            Where I am headed and what I am building toward
           </p>
         </section>
 
         {/* Main content */}
         <section className="rounded-3xl border border-neutral-200/90 bg-white p-6 sm:p-8 shadow-card space-y-5">
           <p className="text-sm sm:text-base text-neutral-700 leading-relaxed">
-            I&apos;m an engineer who wants to build a career in investing. I bring a strong analytical background and the ability to build things, including this website. What I don&apos;t yet have is the finance training and industry relationships many other candidates start with.
+            I&apos;m an engineer who wants to build a career in investing. I bring a strong analytical background and the ability to build things, including this website. What I don&apos;t yet have is the finance training and industry relationships many other candidates start with
           </p>
           <p className="text-sm sm:text-base text-neutral-700 leading-relaxed">
-            As AI reshapes finance, I believe the strongest investors will pair financial judgment with the ability to understand and build technology. Recalc would give me the financial foundation, and I&apos;d bring a more builder-like mindset to the cohort.
+            As AI reshapes finance, I believe the strongest investors will pair financial judgment with the ability to understand and build technology. Recalc would give me the financial foundation, and I&apos;d bring a more builder-like mindset to the cohort
           </p>
         </section>
 
