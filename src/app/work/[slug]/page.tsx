@@ -3,8 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { portfolioData } from "@/data/portfolio";
 import { FloatingNav } from "@/components/FloatingNav";
-import { DropInGuide } from "@/components/DropInGuide";
-import { ArrowLeft, Calendar, MapPin, CheckCircle2, Cpu, Award } from "lucide-react";
+import { ArrowLeft, Calendar, MapPin, CheckCircle2, Cpu, Award, Lightbulb } from "lucide-react";
 
 interface PageProps {
   params: {
@@ -46,10 +45,9 @@ export default function WorkSubpage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-neutral-900 pb-28 pt-24 sm:pt-28">
       <FloatingNav />
-      <DropInGuide />
 
-      <main className="max-w-2xl mx-auto px-4 sm:px-6 space-y-8">
-        {/* Navigation Breadcrumb */}
+      <main className="max-w-2xl mx-auto px-4 sm:px-6 space-y-6">
+        {/* Back */}
         <div>
           <Link
             href="/work"
@@ -60,7 +58,7 @@ export default function WorkSubpage({ params }: PageProps) {
           </Link>
         </div>
 
-        {/* Experience Header Card */}
+        {/* Header Card */}
         <section aria-labelledby="experience-title" className="rounded-3xl border border-neutral-200/90 bg-white p-6 sm:p-8 shadow-card">
           <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-neutral-500 mb-3">
             <span className="flex items-center gap-1">
@@ -91,39 +89,54 @@ export default function WorkSubpage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* Hero Photo Card */}
-        <section aria-label="Project Preview" className="rounded-3xl overflow-hidden border border-neutral-200/90 bg-white shadow-card">
-          <div className="relative aspect-[16/9] w-full bg-neutral-100">
+        {/* Logo card */}
+        <section aria-label="Company logo" className="rounded-3xl overflow-hidden border border-neutral-200/90 bg-white shadow-card">
+          <div className="relative aspect-[16/7] w-full bg-neutral-50 flex items-center justify-center p-8">
             <Image
               src={exp.photoSrc}
-              alt={`${exp.title} showcase visual`}
+              alt={`${exp.subtitle} logo`}
               fill
               priority
-              className="object-cover"
+              className="object-contain p-8"
             />
-          </div>
-          <div className="p-4 bg-white border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-400 font-mono">
-            <span>Showcase image file:</span>
-            <span className="text-neutral-600">{exp.photoSrc}</span>
           </div>
         </section>
 
-        {/* In-depth Overview */}
+        {/* Team photo — shown only if teamPhotoSrc is set */}
+        {exp.teamPhotoSrc && (
+          <section aria-label="Team photo" className="rounded-3xl overflow-hidden border border-neutral-200/90 bg-white shadow-card">
+            <div className="relative aspect-[4/3] sm:aspect-[16/9] w-full bg-neutral-100">
+              <Image
+                src={exp.teamPhotoSrc}
+                alt="Intern team photo"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="px-5 py-3 border-t border-neutral-100">
+              <p className="text-[11px] font-mono text-neutral-400">
+                Drop your intern photo into <span className="text-neutral-600">public/photos/dispatch-intern.jpg</span> to replace this placeholder
+              </p>
+            </div>
+          </section>
+        )}
+
+        {/* Overview & Context */}
         <section aria-labelledby="overview-heading" className="rounded-3xl border border-neutral-200/90 bg-white p-6 sm:p-8 shadow-card space-y-4">
           <h2 id="overview-heading" className="text-lg font-display font-semibold text-neutral-900">
-            Overview & Context
+            Overview &amp; Context
           </h2>
           <p className="text-sm sm:text-base text-neutral-700 leading-relaxed font-sans">
             {exp.fullSubpage.overview}
           </p>
         </section>
 
-        {/* Highlights and Contributions */}
+        {/* Key Contributions */}
         <section aria-labelledby="contributions-heading" className="rounded-3xl border border-neutral-200/90 bg-white p-6 sm:p-8 shadow-card space-y-4">
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-neutral-800" aria-hidden="true" />
             <h2 id="contributions-heading" className="text-lg font-display font-semibold text-neutral-900">
-              Key Contributions & Highlights
+              What I Did
             </h2>
           </div>
           <ul className="space-y-3 pt-1">
@@ -138,13 +151,28 @@ export default function WorkSubpage({ params }: PageProps) {
           </ul>
         </section>
 
-        {/* Technologies & Learnings */}
+        {/* Key Lesson — only if present */}
+        {exp.fullSubpage.keyLesson && (
+          <section aria-labelledby="keylesson-heading" className="rounded-3xl border border-neutral-200/90 bg-white p-6 sm:p-8 shadow-card space-y-3">
+            <div className="flex items-center gap-2">
+              <Lightbulb className="w-4 h-4 text-neutral-600" aria-hidden="true" />
+              <h2 id="keylesson-heading" className="text-lg font-display font-semibold text-neutral-900">
+                Important Lesson
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-neutral-700 leading-relaxed font-sans">
+              {exp.fullSubpage.keyLesson}
+            </p>
+          </section>
+        )}
+
+        {/* Concepts + Takeaway */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <section aria-labelledby="technologies-heading" className="rounded-3xl border border-neutral-200/90 bg-white p-6 shadow-card space-y-3">
             <div className="flex items-center gap-2">
               <Cpu className="w-4 h-4 text-neutral-600" aria-hidden="true" />
               <h2 id="technologies-heading" className="text-sm font-display font-semibold text-neutral-900">
-                Technologies & Tools
+                Concepts &amp; Skills
               </h2>
             </div>
             <div className="flex flex-wrap gap-1.5 pt-1">
@@ -163,7 +191,7 @@ export default function WorkSubpage({ params }: PageProps) {
             <div className="flex items-center gap-2">
               <Award className="w-4 h-4 text-neutral-600" aria-hidden="true" />
               <h2 id="takeaways-heading" className="text-sm font-display font-semibold text-neutral-900">
-                Outcomes & Impact
+                My Main Takeaway
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed pt-1">
@@ -172,7 +200,7 @@ export default function WorkSubpage({ params }: PageProps) {
           </section>
         </div>
 
-        {/* Subpage Pagination */}
+        {/* Pagination */}
         <nav aria-label="Experiences pagination" className="pt-4 flex items-center justify-between gap-4">
           {prevExp ? (
             <Link
@@ -180,7 +208,7 @@ export default function WorkSubpage({ params }: PageProps) {
               className="flex-1 p-4 rounded-2xl bg-white border border-neutral-200/80 hover:border-neutral-300 transition-colors shadow-sm"
             >
               <span className="text-[11px] font-mono text-neutral-400 block mb-0.5">
-                Previous Role
+                Previous
               </span>
               <span className="text-xs sm:text-sm font-display font-semibold text-neutral-900 block truncate">
                 {prevExp.title}
@@ -196,7 +224,7 @@ export default function WorkSubpage({ params }: PageProps) {
               className="flex-1 p-4 rounded-2xl bg-white border border-neutral-200/80 hover:border-neutral-300 transition-colors text-right shadow-sm"
             >
               <span className="text-[11px] font-mono text-neutral-400 block mb-0.5">
-                Next Role
+                Next
               </span>
               <span className="text-xs sm:text-sm font-display font-semibold text-neutral-900 block truncate">
                 {nextExp.title}

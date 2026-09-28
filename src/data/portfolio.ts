@@ -6,12 +6,14 @@ export interface Experience {
   period: string;
   location: string;
   photoSrc: string;
+  teamPhotoSrc?: string;
   oneLineDescription: string;
   fullSubpage: {
     overview: string;
     highlights: string[];
     technologies: string[];
     outcomes: string;
+    keyLesson?: string;
     externalUrl?: string;
   };
 }
@@ -206,16 +208,19 @@ export const portfolioData: PortfolioData = {
       period: "June 2026 – August 2026",
       location: "New York, NY",
       photoSrc: "/photos/work-1.jpg",
-      oneLineDescription: "Helped standardize processes for an M&A team covering $400M in energy assets at a Hamilton Lane portfolio company.",
+      teamPhotoSrc: "/photos/dispatch-intern.jpg",
+      oneLineDescription: "Standardized M&A processes for a team covering $400M in energy assets at a Hamilton Lane portfolio company, while learning infrastructure finance, capital markets, and buy-side dynamics entirely on the fly",
       fullSubpage: {
-        overview: "Add your fuller reflection on what you truly learned here.",
+        overview: "I came in with a basic finance foundation from coursework and was immediately dropped into the complex world of infrastructure investing, where revenue structures are tied to power purchase agreements (PPAs), deals involve debt sculpting, and capital structures sit at the intersection of energy policy and credit markets. My engineering research background helped me pick up technical frameworks quickly, but I had to absorb entirely new financial concepts, from PPA mechanics to borrowing base analysis and capital markets dynamics, in real time and on the job",
         highlights: [
-          "Helped standardize processes for an M&A team covering $400M in energy assets.",
-          "Gained exposure to deal structuring, asset valuation, and due diligence within the energy sector.",
-          "Worked directly within a Hamilton Lane portfolio company, bridging private equity strategy with operational execution.",
+          "Led a state-by-state energy market database project requiring fluency in both financial modeling and legal and regulatory policy, translating complex policy frameworks into structured financial data",
+          "Gained hands-on exposure to debt sculpting, capital markets, and borrowing base work as part of an M&A team covering $400M in energy assets",
+          "Worked alongside LPs for the first time and got a real look at the buy side, seeing capital allocation from an investor perspective rather than just the operational side",
+          "Used AI tooling to help migrate and structure financial models, applying it to a real infrastructure finance context",
         ],
-        technologies: ["M&A", "Energy Assets", "Private Equity", "Due Diligence", "Financial Modeling"],
-        outcomes: "Add your personal takeaway from this role beyond the resume bullet.",
+        technologies: ["Power Purchase Agreements (PPAs)", "Debt Sculpting", "Capital Markets", "Borrowing Base Analysis", "Infrastructure Finance", "M&A Due Diligence", "Energy Policy", "Financial Modeling"],
+        keyLesson: "How to operate in a corporate environment, ask the right questions, and build something useful when starting from near zero. The most important skill was learning how to find mentors, absorb complex interdisciplinary topics on the spot, and be proactive in filling your own knowledge gaps",
+        outcomes: "This experience is where my real interest in the buy side began. Working directly with LPs to help secure funding gave me my first taste of how capital actually moves, and the credit and capital markets exposure through borrowing base work made me want to go deeper. My main takeaway was simple: be proactive in learning, seek mentors before you need them, and never stop asking questions when the material is hard",
         externalUrl: "https://dispatchenergy.com",
       },
     },
@@ -227,16 +232,16 @@ export const portfolioData: PortfolioData = {
       period: "September 2025 – Present",
       location: "Ithaca, NY",
       photoSrc: "/photos/work-2.jpg",
-      oneLineDescription: "Selected as Business Lead for the Cornell Fintech Club Millennium Project, partnering with Millennium Management to build an AI-powered financial document intelligence tool for earnings calls.",
+      oneLineDescription: "Selected as Business Lead for the Cornell Fintech Club Millennium Project, partnering with Millennium Management to build an AI-powered financial document intelligence tool for earnings calls",
       fullSubpage: {
-        overview: "Add your fuller reflection on what you truly learned here.",
+        overview: "Add your fuller reflection on what you truly learned here",
         highlights: [
-          "Selected as Business Lead for a high-impact club project as a new member.",
-          "Partnered with Millennium Management to scope and deliver a financial document generator for earnings calls.",
-          "Built tools to extract and synthesize key financial insights, reducing manual analyst time.",
+          "Selected as Business Lead for a high-impact club project as a new member",
+          "Partnered with Millennium Management to scope and deliver a financial document generator for earnings calls",
+          "Built tools to extract and synthesize key financial insights, reducing manual analyst time",
         ],
         technologies: ["Financial Analysis", "AI/NLP", "Earnings Call Analysis", "Product Strategy", "Fintech"],
-        outcomes: "Add your personal takeaway from this role beyond the resume bullet.",
+        outcomes: "Add your personal takeaway from this role beyond the resume bullet",
         externalUrl: "https://cornellfintech.org",
       },
     },
@@ -248,16 +253,16 @@ export const portfolioData: PortfolioData = {
       period: "January 2026 – Present",
       location: "New York, NY",
       photoSrc: "/photos/work-3.jpg",
-      oneLineDescription: "As the only engineering student in my finance club with coding experience, led an AI-powered investment memo generator for fixed income impact firm CNote.",
+      oneLineDescription: "As the only engineering student in my finance club with coding experience, led an AI-powered investment memo generator for fixed income impact firm CNote",
       fullSubpage: {
-        overview: "Add your fuller reflection on what you truly learned here.",
+        overview: "Add your fuller reflection on what you truly learned here",
         highlights: [
-          "Sole engineering student leading a technical project with significant financial components.",
-          "Built an investment memo generator to streamline fixed income analysis for CNote.",
-          "Bridged the gap between technical development and financial stakeholder requirements.",
+          "Sole engineering student leading a technical project with significant financial components",
+          "Built an investment memo generator to streamline fixed income analysis for CNote",
+          "Bridged the gap between technical development and financial stakeholder requirements",
         ],
         technologies: ["AI", "Python", "Investment Memos", "Fixed Income", "Impact Investing"],
-        outcomes: "Add your personal takeaway from this role beyond the resume bullet.",
+        outcomes: "Add your personal takeaway from this role beyond the resume bullet",
         externalUrl: "https://mycnote.com",
       },
     },
