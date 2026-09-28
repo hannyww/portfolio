@@ -4,31 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Video, ArrowRight, Sparkles } from "lucide-react";
 import { PortfolioData } from "@/data/portfolio";
-import { useRef, useState } from "react";
 
 interface WhoAmISectionProps {
   whoAmI: PortfolioData["whoAmI"];
 }
 
 export function WhoAmISection({ whoAmI }: WhoAmISectionProps) {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [videoNotice, setVideoNotice] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const toggleVideo = () => {
-    if (!videoRef.current) return;
-    if (isPlaying) {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      videoRef.current.play().then(() => {
-        setIsPlaying(true);
-        setVideoNotice(false);
-      }).catch(() => {
-        setVideoNotice(true);
-      });
-    }
-  };
 
   return (
     <section aria-labelledby="whoami-heading" className="space-y-3">
@@ -42,27 +23,13 @@ export function WhoAmISection({ whoAmI }: WhoAmISectionProps) {
         {/* Box 1: Personal Video */}
         <div className="group relative rounded-3xl overflow-hidden border border-neutral-200/90 bg-white shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between">
           <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-900">
-            {whoAmI.video.youtubeId ? (
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${whoAmI.video.youtubeId}?rel=0&modestbranding=1`}
-                title={whoAmI.video.caption}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full border-0"
-              />
-            ) : (
-              <video
-                ref={videoRef}
-                src={whoAmI.video.src}
-                poster={whoAmI.video.poster}
-                controls={isPlaying}
-                playsInline
-                onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
-                onError={() => setVideoNotice(true)}
-                className="w-full h-full object-cover"
-              />
-            )}
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${whoAmI.video.youtubeId}?rel=0&modestbranding=1`}
+              title={whoAmI.video.caption}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full border-0"
+            />
 
             {/* Badge */}
             <div className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-full bg-neutral-900/75 backdrop-blur-sm text-white text-[11px] font-medium tracking-wide flex items-center gap-1.5 pointer-events-none">
